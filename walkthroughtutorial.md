@@ -24,6 +24,8 @@ gcloud container clusters create sample-cluster --zone=asia-northeast1-a --machi
 
 - GCP Consoleのメニューよりkubernetes Engineを選択し、クラスタが作成された事を確認します。
 
+## Webアプリのデプロイ
+
 - ワークロード(Pod)は何もない状態なので作成したクラスタへWebアプリをデプロイします。
 
 - 次のコマンドを実行します。
@@ -31,6 +33,8 @@ gcloud container clusters create sample-cluster --zone=asia-northeast1-a --machi
 ```sh
 kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0
 ```
+
+## サービスの作成
 
 - デプロイされたアプリはまだ外部に公開されていません。
 
@@ -43,6 +47,8 @@ kubectl expose deployment hello-server2 --type NodePort --port 80 --target-port 
 ```
 
 - これでノードの外部IPアドレスを使用して公開された状態になりました。
+
+## アクセス方法
 
 - 次に公開されたポート番号を調べる為、次のコマンドを実行します。
 
